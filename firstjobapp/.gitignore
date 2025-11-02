@@ -35,24 +35,22 @@
 #
 ##Custom added
 # ========================================
-# ✅ SAFE SPRING BOOT + MAVEN GITIGNORE
-# Keeps your source code visible on GitHub
-# but ignores build files and IDE junk
+# ✅ SPRING BOOT + MAVEN SAFE .gitignore
+# Keeps only source code, config, and POM
+# Hides build artifacts, IDE files, and secrets
 # ========================================
 
 # --------------------------
 # Maven build output
 # --------------------------
 target/
-!**/src/main/**/target/
-!**/src/test/**/target/
+!.mvn/wrapper/maven-wrapper.properties
+!pom.xml
 
 # --------------------------
 # Build systems (Gradle, NetBeans)
 # --------------------------
-/build/
-!**/src/main/**/build/
-!**/src/test/**/build/
+build/
 .nb-gradle/
 nbproject/private/
 nbbuild/
@@ -60,34 +58,37 @@ dist/
 nbdist/
 
 # --------------------------
-# IDE files (IntelliJ, Eclipse, VS Code)
+# IDE / Editor files
 # --------------------------
+# IntelliJ IDEA
 .idea/
-*.iws
 *.iml
 *.ipr
+*.iws
+
+# Eclipse / Spring Tool Suite
 .classpath
 .project
 .settings/
-.vscode/
-
-# --------------------------
-# Spring Tool Suite (STS)
-# --------------------------
-.apt_generated/
 .factorypath
 .springBeans
 .sts4-cache/
+.apt_generated/
+
+# VS Code
+.vscode/
 
 # --------------------------
-# Logs
+# Logs and temp files
 # --------------------------
 *.log
 logs/
 *.out
+*.tmp
+*.bak
 
 # --------------------------
-# OS-specific junk
+# OS-generated junk
 # --------------------------
 .DS_Store
 Thumbs.db
@@ -95,25 +96,35 @@ ehthumbs.db
 Desktop.ini
 
 # --------------------------
-# Maven Wrapper
+# Maven Wrapper (safe inclusion)
 # --------------------------
 .mvn/wrapper/maven-wrapper.jar
 
 # --------------------------
-# Miscellaneous
+# Secret / sensitive files
 # --------------------------
-HELP.md
+*.env
+*.key
+*.pem
+*.crt
+*.p12
+application-*.yml
+application-*.properties
 
 # --------------------------
-# Explicitly include source folders
+# Explicitly include source and config
 # --------------------------
 !src/
 !src/**
 
+# Keep documentation and metadata
+!README.md
+!LICENSE
+!.gitignore
+
 # ========================================
-# ✅ Explanation:
-# - Ignores compiled stuff (target/, build/)
-# - Ignores IDE metadata (.idea/, .vscode/, etc.)
-# - Keeps your /src files safe and always uploaded
-# - Keeps your pom.xml, README, etc. visible
+# ✅ Notes:
+# - Keeps only source code, POM, and configs
+# - Excludes secrets, IDE files, and generated content
+# - Safe for public GitHub repos
 # ========================================
