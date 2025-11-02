@@ -1,0 +1,7 @@
+/mvnw text eol=lf
+*.cmd text eol=crlf
+
+# Always use LF in all text files
+* text=auto eol=lf
+# Handle line endings automatically
+* text=auto
