@@ -1,49 +1,119 @@
-HELP.md
+#HELP.md
+#target/
+#.mvn/wrapper/maven-wrapper.jar
+#!**/src/main/**/target/
+#!**/src/test/**/target/
+#
+#### STS ###
+#.apt_generated
+#.classpath
+#.factorypath
+#.project
+#.settings
+#.springBeans
+#.sts4-cache
+#
+#### IntelliJ IDEA ###
+#.idea
+#*.iws
+#*.iml
+#*.ipr
+#
+#### NetBeans ###
+#/nbproject/private/
+#/nbbuild/
+#/dist/
+#/nbdist/
+#/.nb-gradle/
+#build/
+#!**/src/main/**/build/
+#!**/src/test/**/build/
+#
+#### VS Code ###
+#.vscode/
+#
+#
+##Custom added
+# ========================================
+# ✅ SAFE SPRING BOOT + MAVEN GITIGNORE
+# Keeps your source code visible on GitHub
+# but ignores build files and IDE junk
+# ========================================
+
+# --------------------------
+# Maven build output
+# --------------------------
 target/
-.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
 !**/src/test/**/target/
 
-### STS ###
-.apt_generated
-.classpath
-.factorypath
-.project
-.settings
-.springBeans
-.sts4-cache
+# --------------------------
+# Build systems (Gradle, NetBeans)
+# --------------------------
+/build/
+!**/src/main/**/build/
+!**/src/test/**/build/
+.nb-gradle/
+nbproject/private/
+nbbuild/
+dist/
+nbdist/
 
-### IntelliJ IDEA ###
-.idea
+# --------------------------
+# IDE files (IntelliJ, Eclipse, VS Code)
+# --------------------------
+.idea/
 *.iws
 *.iml
 *.ipr
-
-### NetBeans ###
-/nbproject/private/
-/nbbuild/
-/dist/
-/nbdist/
-/.nb-gradle/
-build/
-!**/src/main/**/build/
-!**/src/test/**/build/
-
-### VS Code ###
+.classpath
+.project
+.settings/
 .vscode/
 
+# --------------------------
+# Spring Tool Suite (STS)
+# --------------------------
+.apt_generated/
+.factorypath
+.springBeans
+.sts4-cache/
 
-#Custom added
-# IntelliJ IDEA
-.idea/
-#*.iml
-
-# Maven
-#target/
-
+# --------------------------
 # Logs
+# --------------------------
 *.log
+logs/
+*.out
 
-# OS junk
+# --------------------------
+# OS-specific junk
+# --------------------------
 .DS_Store
 Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# --------------------------
+# Maven Wrapper
+# --------------------------
+.mvn/wrapper/maven-wrapper.jar
+
+# --------------------------
+# Miscellaneous
+# --------------------------
+HELP.md
+
+# --------------------------
+# Explicitly include source folders
+# --------------------------
+!src/
+!src/**
+
+# ========================================
+# ✅ Explanation:
+# - Ignores compiled stuff (target/, build/)
+# - Ignores IDE metadata (.idea/, .vscode/, etc.)
+# - Keeps your /src files safe and always uploaded
+# - Keeps your pom.xml, README, etc. visible
+# ========================================
