@@ -1,12 +1,28 @@
 package com.embarkx.firstjobapp.job;
 
+
+import com.embarkx.firstjobapp.company.Company;
+import jakarta.persistence.*;
+
+@Entity     //mapping the below class to DB
+//@Table(name = "job_table")  //  telling DB that I need a table named job_table (OPTIONAL),
+                                // instead of giving default class name to the table.
 public class Job {
+    @Id         //declares below line as Primary key.
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String title;
     private String description;
     private String minSalary;
     private String maxSalary;
     private String location;
+
+    @ManyToOne
+    private Company company;
+
+    public Job() {//Whenever working with JPA we need to have a default Constructor!
+
+    }
 
     public Job(Long id, String title, String minSalary, String description, String location, String maxSalary) {
         this.id = id;
@@ -15,6 +31,14 @@ public class Job {
         this.description = description;
         this.location = location;
         this.maxSalary = maxSalary;
+    }
+
+    public Company getCompany() {
+        return company;
+    }
+
+    public void setCompany(Company company) {
+        this.company = company;
     }
 
     public Long getId() {

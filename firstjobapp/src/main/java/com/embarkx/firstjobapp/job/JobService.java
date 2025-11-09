@@ -1,7 +1,5 @@
 package com.embarkx.firstjobapp.job;
 
-import org.springframework.http.ResponseEntity;
-
 import java.util.List;
 
 public interface JobService {//setted as interface for loose coupling
