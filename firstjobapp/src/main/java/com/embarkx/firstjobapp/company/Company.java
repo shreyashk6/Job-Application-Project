@@ -17,11 +17,10 @@ public class Company {
     //to avoid recurssion between job and company tables add ignorejson anotation
     @JsonIgnore
     @OneToMany(mappedBy = "company", cascade = CascadeType.ALL, orphanRemoval = true)//used for
-                                                                      //sql exception when deleting a company
+                                                                //sql exception when deleting a company
     private List<Job> jobs;
 
     @OneToMany(mappedBy = "company", cascade = CascadeType.ALL, orphanRemoval = true)
-
     private List<Review> reviews;
 
     public Company() {

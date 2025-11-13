@@ -15,13 +15,13 @@ public class ReviewController {
         this.reviewService = reviewService;
     }
 
-    // ✅ Get all reviews for a company
+    // Get all reviews for a company
     @GetMapping
     public ResponseEntity<List<Review>> getAllReviews(@PathVariable Long companyId) {
         return new ResponseEntity<>(reviewService.getAllReviews(companyId), HttpStatus.OK);
     }
 
-    // ✅ Add a new review for a company
+    //  Add a new review for a company
     @PostMapping
     public ResponseEntity<String> addReview(@PathVariable Long companyId,
                                             @RequestBody Review review) {
@@ -32,14 +32,14 @@ public class ReviewController {
         return new ResponseEntity<>("Review Not Added", HttpStatus.NOT_FOUND);
     }
 
-    // ✅ Get a specific review by ID
+    // Get a specific review by ID
     @GetMapping("/{reviewId}")
     public ResponseEntity<Review> getReview(@PathVariable Long companyId,
                                             @PathVariable Long reviewId) {
         return new ResponseEntity<>(reviewService.getReview(companyId, reviewId), HttpStatus.OK);
     }
 
-    // ✅ Update an existing review
+    //  Update an existing review
     @PutMapping("/{reviewId}")
     public ResponseEntity<String> updateReview(@PathVariable Long companyId,
                                                @PathVariable Long reviewId,
@@ -50,5 +50,14 @@ public class ReviewController {
         }
         return new ResponseEntity<>("Review Not Updated!", HttpStatus.NOT_FOUND);
     }
-
+    @DeleteMapping("/{reviewId}")
+    public ResponseEntity<String> deleteReview(@PathVariable Long companyId,
+                                               @PathVariable Long reviewId){
+        boolean isReviewDeleted = reviewService.deleteReview(companyId, reviewId);
+        if (isReviewDeleted){
+            return new ResponseEntity<>("Review has been Deleted",HttpStatus.OK);
+        }else{
+            return new ResponseEntity<>("Review Does Not Exist to be Deleted",HttpStatus.NOT_FOUND);
+        }
+    }
 }
